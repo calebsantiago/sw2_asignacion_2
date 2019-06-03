@@ -24,7 +24,9 @@ Aquí van las conclusiones.
 ```typescript
 class User {
     ...
-    /*los siguientes métodos toman una lista de parámetros muy similares por lo que se deberán agrupar en una clase independiente, debido a que al tener una larga lista de parámetros podría conllevar a fallas del código, conflictos y difíciles pruebas de unidad*/
+    /*los siguientes métodos toman una lista de parámetros muy similares por lo que se       
+    deberán agrupar en una clase independiente, debido a que al tener una larga lista de 
+    parámetros podría conllevar a fallas del código, conflictos y difíciles pruebas de unidad*/
     searchService(name : string) : void {
         this.serviceApp.searchService(name)
     }
@@ -41,7 +43,10 @@ class User {
 ```
 ```typescript
 class Service {
-    /*se utiliza la técnica de refactoring 'dividir código en piezas lógicas (extract class)' al crear otra clase que agrupa a la lista de parámetros como atributos propios y utiliza métodos reservados de tipo 'get' para devolver dichos elementos a través de su instancia como objeto*/
+    /*se utiliza la técnica de refactoring 'dividir código en piezas lógicas (extract class)' 
+    al crear otra clase que agrupa a la lista de parámetros como atributos propios y utiliza 
+    métodos reservados de tipo 'get' para devolver dichos elementos a través de su instancia 
+    como objeto*/
     id : number
     name : string
     date : Date
@@ -77,9 +82,9 @@ class Service {
     }
 }
 
-/*luego de implementar la técnica de refactoring*/
 class User {
     ...
+    /*luego de implementar la técnica de refactoring*/
     searchService(service : Service) : void {
         this.serviceApp.searchService(service)
     }
@@ -97,15 +102,21 @@ class User {
 
 ### Ejemplo 2: Long Method
 
-Aquí va el ejemplo 2. 
+```typescript
+/*Aquí va el ejemplo 2*/
+```
 
 ### Ejemplo 3: 
 
-Aquí va el ejemplo 3. 
+```typescript
+/*Aquí va el ejemplo 3*/
+```
 
 ### Ejemplo 4: 
 
-Aquí va el ejemplo 4.
+```typescript
+/*Aquí va el ejemplo 4*/
+```
 
 ## Rúbrica
 
