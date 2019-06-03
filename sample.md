@@ -23,11 +23,6 @@ Aquí van las conclusiones.
 
 Aquí va el ejemplo 1.
 
-    :::python
-    import lifetime
-    for each_day in lifetime.days():
-        carpe_diem()
-
 ### Ejemplo 2: Long Method
 
 Aquí va el ejemplo 2. 
