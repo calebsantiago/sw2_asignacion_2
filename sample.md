@@ -20,7 +20,13 @@ Aquí van las conclusiones.
 ## Ejemplos de Code Smells
 
 ### Ejemplo 1: Data Clumps
-Aquí va el ejemplo 1. 
+
+Aquí va el ejemplo 1.
+
+    :::python
+    import lifetime
+    for each_day in lifetime.days():
+        carpe_diem()
 
 ### Ejemplo 2: Long Method
 
