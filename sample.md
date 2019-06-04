@@ -112,10 +112,96 @@ class User {
 /*Aquí va el ejemplo 3*/
 ```
 
-### Ejemplo 4: 
+### Ejemplo 4: Duplicate Code
 
 ```typescript
-/*Aquí va el ejemplo 4*/
+/*Si se tiene dos cases en una sentencia switch o dos ramas de if con una implementación similar, son ejemplos de duplicate code*/
+switch (i) {
+  case 1:
+    doFirstThing();
+    doSomething();
+    break;
+  case 2:
+    doSomethingDifferent();
+    break;
+  case 3:  // Noncompliant; duplicates case 1's implementation
+    doFirstThing();
+    doSomething();
+    break;
+  default:
+    doTheRest();
+}
+
+if (a >= 0 && a < 10) {
+  doFirstThing();
+  doTheThing();
+}
+else if (a >= 10 && a < 20) {
+  doTheOtherThing();
+}
+else if (a >= 20 && a < 50) {
+  doFirstThing();
+  doTheThing();  // Noncompliant; duplicates first condition
+}
+else {
+  doTheRest();
+}
+/* La mejor solución es la combinación de las condicionales y/o cases, para el siguiente ejemplo se puede lograr de dos maneras*/
+switch (i) {
+  case 1:
+    doFirstThing();
+    doSomething();
+    break;
+  case 2:
+    doSomethingDifferent();
+    break;
+  case 3:
+    doFirstThing();
+    doThirdThing();
+    break;
+  default:
+    doTheRest();
+}
+
+if (a >= 0 && a < 10) {
+  doFirstThing();
+  doTheThing();
+}
+else if (a >= 10 && a < 20) {
+  doTheOtherThing();
+}
+else if (a >= 20 && a < 50) {
+  doFirstThing();
+  doTheThirdThing();
+}
+else {
+  doTheRest();
+}
+/*o*/
+switch (i) {
+  case 1:
+  case 3:
+    doFirstThing();
+    doSomething();
+    break;
+  case 2:
+    doSomethingDifferent();
+    break;
+  default:
+    doTheRest();
+}
+
+if ((a >= 0 && a < 10) || (a >= 20 && a < 50)) {
+  doFirstThing();
+  doTheThing();
+}
+else if (a >= 10 && a < 20) {
+  doTheOtherThing();
+}
+else {
+  doTheRest();
+}
+
 ```
 
 ## Rúbrica
