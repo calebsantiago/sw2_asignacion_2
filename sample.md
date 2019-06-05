@@ -103,7 +103,53 @@ class User {
 ### Ejemplo 2: Long Method
 
 ```typescript
-/*Aquí va el ejemplo 2*/
+/*Se posee una clase que puede tener gran cantidad de atributos sin embargo se implementa un método el cual busca imprimir la factura, para lo cual llama al método imprimir encabezado y en el mismo método imprime otros atributos lo cual en múltiples llamadas puede generar un desorden al tener un método que llama a otro metodo ademas de hacer la llamada a otros atributos.*/
+class Factura{
+   nombre:String="";
+   cantidad:number=0;
+   ruc: number=0;
+   monto:number=0;
+   codigo:number=0;
+   conIGV:boolean=True;
+
+//...
+   constructor(nombre:String,cantidad:number,ruc:number,monto:number
+      ,codigo:number,conIGV:boolean){
+       this.nombre=nombre;
+       this.cantidad=cantidad;
+               this.ruc=ruc;
+               this.monto=monto;
+               this.codigo=codigo;
+               this.conIGV=conIGV;
+}
+   //Antes de la implementación de la técnica de refactoring
+   ImprimirFactura():void{
+       imprimirEncabezado();
+       //Imprime los detalles correspondientes
+       console.log(`El nombre del cliente es: ${this.nombre}`)
+       console.log(`La cantidad es: ${this.cantidad}`)
+       console.log(`El ruc es: ${this.ruc}`)
+       console.log(`El monto es: ${this.monto}`)
+       console.log(`El código es: ${this.codigo}`)
+       console.log(`Es afecta de IGV: ${this.conIGV}`)
+   }
+   }
+}
+/* Con la implementación del extract method nos permite tener un código mucho más comprensible y ordenado de manera que podamos ubicar más fácilmente las llamadas y los atributos que buscamos llamar*/ 
+
+   //Después de implementar la técnica de refactoring
+   ImprimirFactura():void{
+       ImprimirEncabezado();
+       ImprimirDetalles();
+   }
+   ImprimirDetalles():void{
+       console.log(`El nombre es: ${this.nombre}`)
+       console.log(`La cantidad es: ${this.cantidad}`)
+       console.log(`El ruc es: ${this.ruc}`)
+       console.log(`El monto es: ${this.monto}`)
+       console.log(`El código es: ${this.codigo}`)
+       console.log(`Es afecta de IGV: ${this.conIGV}`)
+
 ```
 
 ### Ejemplo 3: 
@@ -202,6 +248,27 @@ else {
   doTheRest();
 }
 
+```
+
+### Ejemplo 5: 
+
+```typescript
+/*Si se tiene una variable declarada para un valor constante este valor puede estar ocupando espacio de memoria y generar que el código sea un poco mas pesado debido a esta declaración*/
+//Codigo smells
+ function verificar(input: number[]) {
+   let target = 32;  // Noncompliant
+   for (let i of input) {
+     if (i == target) {
+       return true;
+     }
+   }
+   return false;
+ }
+/*una forma de solucionar este problema es cambiar el tipo de declaración a una declaración que sea mas acorde a las especificaciones de la declaración o mas acorde a las necesidades*/
+//Aplicando refactoring : rename 
+function verificar(input: number[]) {
+   const target = 32;
+   for (let i of input) {
 ```
 
 ## Rúbrica
