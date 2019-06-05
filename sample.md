@@ -269,6 +269,13 @@ else {
 function verificar(input: number[]) {
    const target = 32;
    for (let i of input) {
+      if (i == target) {
+       return true;
+     }
+   }
+   return false;
+ }
+
 ```
 
 ## Rúbrica
