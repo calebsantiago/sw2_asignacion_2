@@ -352,7 +352,7 @@ else {
 ```typescript
 /*si se tiene una variable declarada para un valor constante este valor puede estar ocupando espacio
 de memoria y generar que el código sea un poco mas pesado debido a esta declaración*/
-function verificar(input: number[]) {
+function verificar(input : number[]) {
   let target = 32 // Noncompliant
   for (let i of input) {
     if (i == target) {
@@ -366,7 +366,7 @@ function verificar(input: number[]) {
 /*una forma de solucionar este problema es cambiar el tipo de declaración a una declaración que sea
 mas acorde a las especificaciones de la declaración o mas acorde a las necesidades*/
 /*aplicando refactoring : rename*/
-function verificar(input: number[]) {
+function verificar(input : number[]) {
   const target = 32
   for (let i of input) {
     if (i == target) {
