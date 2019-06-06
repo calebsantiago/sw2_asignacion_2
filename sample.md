@@ -353,7 +353,7 @@ else {
 /*si se tiene una variable declarada para un valor constante este valor puede estar ocupando espacio
 de memoria y generar que el código sea un poco mas pesado debido a esta declaración*/
 function verificar(input : number[]) {
-  let target = 32 // Noncompliant
+  let target = 32 /*Noncompliant*/
   for (let i of input) {
     if (i == target) {
       return true
